@@ -20,6 +20,7 @@ public class ParameterController {
 		System.out.println(p3);
 		System.out.println(p4);
 		System.out.println(p5);
+		//같은 파라미터 이름으로 value가 여러개 일때 -> 배열로 선언
 		for(int i=0;i<p6.length;i++) {
 			System.out.println(p6[i]);
 		}
