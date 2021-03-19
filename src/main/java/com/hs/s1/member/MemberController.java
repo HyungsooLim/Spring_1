@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MemberController {
@@ -47,17 +48,13 @@ public class MemberController {
 
 	// memberLogin2 print
 	@RequestMapping(value = "/member/memberLogin", method = RequestMethod.POST)
-	public String memberLogin(HttpServletRequest request) throws Exception {
-		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
-		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setId(id);
-		memberDTO.setPw(pw);
+	public ModelAndView memberLogin(MemberDTO memberDTO, ModelAndView modelAndView) throws Exception {
+	
 		memberDTO = memberService.memberLogin(memberDTO);
-
-		System.out.println(memberDTO);
-		request.setAttribute("DTO", memberDTO);
 		
-		return "member/memberPage";
-	}// === memberLogin2 method END ===
+		modelAndView.addObject("DTO", memberDTO);
+		modelAndView.setViewName("member/memberPage");
+		
+		return modelAndView;
+	}// === memberLogin method END ===
 }
