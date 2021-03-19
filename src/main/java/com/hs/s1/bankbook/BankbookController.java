@@ -48,8 +48,8 @@ public class BankbookController {
 	// 상품 등록
 	@RequestMapping(value = "/bankbook/bankbookAdd", method = RequestMethod.POST)
 	public ModelAndView bankbookAdd(BankbookDTO bankbookDTO, ModelAndView modelAndView) throws Exception {
-
-		modelAndView.setViewName("bankbook/bankbookList");
+		int result = bankbookService.setWrite(bankbookDTO);
+		modelAndView.setViewName("redirect:./bankbookList");
 		return modelAndView;
 	}
 
