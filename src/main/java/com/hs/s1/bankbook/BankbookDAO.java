@@ -6,19 +6,15 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.hs.s1.util.DBConnector;
 
 @Repository
 public class BankbookDAO {
-
+	@Autowired
 	DBConnector dbConnector;
-
-	public BankbookDAO() {
-		// TODO Auto-generated constructor stub
-		dbConnector = new DBConnector();
-	}
 
 	// BANKBOOK 전체 조회
 	public List<BankbookDTO> getList() throws Exception {

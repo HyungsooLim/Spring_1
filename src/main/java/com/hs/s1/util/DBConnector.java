@@ -3,6 +3,8 @@ package com.hs.s1.util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+import org.springframework.stereotype.Component;
+@Component
 public class DBConnector {
 
 	public Connection getConnection() throws Exception {
